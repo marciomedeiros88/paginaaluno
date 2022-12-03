@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do aluno</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        function pegaResultado(){
+            const url = new URLSearchParams(window.location.search)
+            let media = url.get("media")
+            document.getElementById("resultado").value = media
+
+            if(media >= 6){
+                document.getElementById("statusAluno").innerHTML = "Aprovado"
+                document.getElementById("statusAluno").style.color = "green"
+            }else{
+                document.getElementById("statusAluno").innerHTML = "Reprovado"
+                document.getElementById("statusAluno").style.color = "red"
+            }
+        }
+    </script>
+</head>
+<body onload="pegaResultado()">
+    <div class="boxnota">
+    <header>
+        <h1>Painel do Aluno<img src="img/lapis.png" alt="Lápis"></h1>
+    </header>
+    <section class="formulario">
+        <label for="nota1">A média do aluno é:</label><br>
+        <input type="number" id="resultado" placeholder="Média"><br>
+        <p>Portanto está <span id="statusAluno"></span>!</p>
+        <a href="index.html">Voltar</a>
+    </section>
+    </div>
+
+
+    
+</body>
+</html>
